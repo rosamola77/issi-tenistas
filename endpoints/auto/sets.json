@@ -1,0 +1,64 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'sets'",
+        "route": "/sets",
+        "method": "GET",
+        "sql": "SELECT * FROM sets",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'sets' by its primary key",
+        "route": "/sets/$setid",
+        "method": "GET",
+        "sql": "SELECT * FROM sets WHERE setid = $setid",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'sets'",
+        "route": "/sets",
+        "method": "POST",
+        "sql": "INSERT INTO sets (winnerid, matchid, orden, resultado) VALUES ($winnerid, $matchid, $orden, $resultado)",
+        "request_body_params": [
+            "winnerid",
+            "matchid",
+            "orden",
+            "resultado"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'sets' by its primary key",
+        "route": "/sets/$setid",
+        "method": "PUT",
+        "sql": "UPDATE sets SET winnerid = $winnerid, matchid = $matchid, orden = $orden, resultado = $resultado WHERE setid = $setid",
+        "request_body_params": [
+            "winnerid",
+            "matchid",
+            "orden",
+            "resultado"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'sets' by its primary key",
+        "route": "/sets/$setid",
+        "method": "DELETE",
+        "sql": "DELETE FROM sets WHERE setid = $setid",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

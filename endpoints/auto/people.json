@@ -1,0 +1,62 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'people'",
+        "route": "/people",
+        "method": "GET",
+        "sql": "SELECT * FROM people",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'people' by its primary key",
+        "route": "/people/$peopleId",
+        "method": "GET",
+        "sql": "SELECT * FROM people WHERE peopleId = $peopleId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'people'",
+        "route": "/people",
+        "method": "POST",
+        "sql": "INSERT INTO people (name, age, nacionality) VALUES ($name, $age, $nacionality)",
+        "request_body_params": [
+            "name",
+            "age",
+            "nacionality"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'people' by its primary key",
+        "route": "/people/$peopleId",
+        "method": "PUT",
+        "sql": "UPDATE people SET name = $name, age = $age, nacionality = $nacionality WHERE peopleId = $peopleId",
+        "request_body_params": [
+            "name",
+            "age",
+            "nacionality"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'people' by its primary key",
+        "route": "/people/$peopleId",
+        "method": "DELETE",
+        "sql": "DELETE FROM people WHERE peopleId = $peopleId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

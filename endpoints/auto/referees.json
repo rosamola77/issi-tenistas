@@ -1,0 +1,60 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'referees'",
+        "route": "/referees",
+        "method": "GET",
+        "sql": "SELECT * FROM referees",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'referees' by its primary key",
+        "route": "/referees/$peopleId",
+        "method": "GET",
+        "sql": "SELECT * FROM referees WHERE peopleId = $peopleId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'referees'",
+        "route": "/referees",
+        "method": "POST",
+        "sql": "INSERT INTO referees (peopleId, license) VALUES ($peopleId, $license)",
+        "request_body_params": [
+            "peopleId",
+            "license"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'referees' by its primary key",
+        "route": "/referees/$peopleId",
+        "method": "PUT",
+        "sql": "UPDATE referees SET peopleId = $peopleId, license = $license WHERE peopleId = $peopleId",
+        "request_body_params": [
+            "peopleId",
+            "license"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'referees' by its primary key",
+        "route": "/referees/$peopleId",
+        "method": "DELETE",
+        "sql": "DELETE FROM referees WHERE peopleId = $peopleId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'matches'",
+        "route": "/matches",
+        "method": "GET",
+        "sql": "SELECT * FROM matches",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'matches' by its primary key",
+        "route": "/matches/$matchid",
+        "method": "GET",
+        "sql": "SELECT * FROM matches WHERE matchid = $matchid",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'matches'",
+        "route": "/matches",
+        "method": "POST",
+        "sql": "INSERT INTO matches (player1id, player2id, winnerid, refereeid, matchdate, matchround, durationtime, tournament) VALUES ($player1id, $player2id, $winnerid, $refereeid, $matchdate, $matchround, $durationtime, $tournament)",
+        "request_body_params": [
+            "player1id",
+            "player2id",
+            "winnerid",
+            "refereeid",
+            "matchdate",
+            "matchround",
+            "durationtime",
+            "tournament"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'matches' by its primary key",
+        "route": "/matches/$matchid",
+        "method": "PUT",
+        "sql": "UPDATE matches SET player1id = $player1id, player2id = $player2id, winnerid = $winnerid, refereeid = $refereeid, matchdate = $matchdate, matchround = $matchround, durationtime = $durationtime, tournament = $tournament WHERE matchid = $matchid",
+        "request_body_params": [
+            "player1id",
+            "player2id",
+            "winnerid",
+            "refereeid",
+            "matchdate",
+            "matchround",
+            "durationtime",
+            "tournament"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'matches' by its primary key",
+        "route": "/matches/$matchid",
+        "method": "DELETE",
+        "sql": "DELETE FROM matches WHERE matchid = $matchid",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

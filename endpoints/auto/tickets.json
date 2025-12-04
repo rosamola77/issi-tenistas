@@ -1,0 +1,66 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'tickets'",
+        "route": "/tickets",
+        "method": "GET",
+        "sql": "SELECT * FROM tickets",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'tickets' by its primary key",
+        "route": "/tickets/$ticketsId",
+        "method": "GET",
+        "sql": "SELECT * FROM tickets WHERE ticketsId = $ticketsId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'tickets'",
+        "route": "/tickets",
+        "method": "POST",
+        "sql": "INSERT INTO tickets (peopleId, matchid, price, localidad, dateBuyTicket) VALUES ($peopleId, $matchid, $price, $localidad, $dateBuyTicket)",
+        "request_body_params": [
+            "peopleId",
+            "matchid",
+            "price",
+            "localidad",
+            "dateBuyTicket"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'tickets' by its primary key",
+        "route": "/tickets/$ticketsId",
+        "method": "PUT",
+        "sql": "UPDATE tickets SET peopleId = $peopleId, matchid = $matchid, price = $price, localidad = $localidad, dateBuyTicket = $dateBuyTicket WHERE ticketsId = $ticketsId",
+        "request_body_params": [
+            "peopleId",
+            "matchid",
+            "price",
+            "localidad",
+            "dateBuyTicket"
+        ],
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'tickets' by its primary key",
+        "route": "/tickets/$ticketsId",
+        "method": "DELETE",
+        "sql": "DELETE FROM tickets WHERE ticketsId = $ticketsId",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}
