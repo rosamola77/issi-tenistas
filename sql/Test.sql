@@ -1,6 +1,6 @@
 -- TEST SQL
 
-USE tenistasdb;                      -- SE USA PARA UTILIZAR ESTA BASE DE DATOS, pasa cuando ejecuto algo y dice que no esta seleccionada la base de datos, pues esto lo soluciona si no la tengo  marcada a la izquierda
+USE t_tenis_c_base;                      -- SE USA PARA UTILIZAR ESTA BASE DE DATOS, pasa cuando ejecuto algo y dice que no esta seleccionada la base de datos, pues esto lo soluciona si no la tengo  marcada a la izquierda
 
 
 -- TABLA DE RESULTADOS DE TESTS (almacena los errores, es decir los registros de si han fallado o no los test)

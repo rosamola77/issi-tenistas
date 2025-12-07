@@ -1,4 +1,4 @@
-USE tenistasdb;
+USE t_tenis_c_base;
 
 DELIMITER //
 CREATE OR REPLACE PROCEDURE p_populate_db()
